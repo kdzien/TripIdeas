@@ -1,0 +1,13 @@
+#map{
+  height:100%;
+  position:initial !important;
+  overflow:hidden !important;
+}
+input{
+  z-index:9;
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  padding:12px 3px;
+  width:200px;
+}
