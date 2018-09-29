@@ -1,0 +1,37 @@
+#create-view{
+  border-radius:5px;
+  position:absolute;
+  top:30px;
+  left:100px;
+  z-index:999;
+  ul{
+    max-width:500px;
+    box-shadow: 0 0 9px 0px rgba(0,0,0,0.75);
+    background-color:whitesmoke;
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    margin-bottom:20px;
+    li{
+      border-bottom: solid 1px #e0e0e0;
+      font-size: 13px;
+      i{
+        color:#4ee809;
+      }
+      .step_nr{
+        background-color:darken(whitesmoke,10%);
+      }
+      .step_address{
+      }
+      .step_nr,.step_address{
+        padding:15px;
+        display:inline-block;
+      }
+
+    }
+  }
+  #undo{
+    padding:15px 25px;
+    border:none;
+  }
+}

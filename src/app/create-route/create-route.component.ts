@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
+import { MapApiService } from '../services/map-api.service';
 
 @Component({
   selector: 'app-create-route',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-route.component.scss']
 })
 export class CreateRouteComponent implements OnInit {
-
-  constructor() { }
+  coordinates: Array<any>;
+  constructor(private mapService: MapApiService,private zone: NgZone) { }
 
   ngOnInit() {
-  }
 
+    this.mapService.getMap().subscribe( (map: any) => {
+      this.coordinates = map;
+      this.zone.run(() => {
+      });
+    });
+  }
+  removeLast() {
+    this.mapService.removeLast();
+  }
 }

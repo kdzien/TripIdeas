@@ -1,0 +1,10 @@
+<section id="create-view">
+  <ul>
+    <li *ngFor="let coordinate of coordinates; let i = index">
+        <div class="step_address">{{coordinate?.address}}</div>
+        <i class="fas fa-long-arrow-alt-right"></i>
+        <div class="step_address">{{coordinates[i+1]?.address}}</div>
+      </li>
+  </ul>
+  <button *ngIf="coordinates" id="undo" (click)="removeLast()"><i class="fas fa-undo"></i></button>
+</section>

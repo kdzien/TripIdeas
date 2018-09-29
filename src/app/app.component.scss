@@ -1,0 +1,26 @@
+aside{
+  position:absolute;
+  left:0;
+  z-index:99;
+  height:100%;
+  background-color:#272235;
+  ul{
+    margin:0;
+    padding:0;
+    li{
+      padding:20px;
+      cursor:pointer;
+      i{
+        color:#6e6e6e;
+        font-size:20px;
+      }
+      &:focus{
+        outline:none;
+      }
+    }
+  }
+}
+.active-link{
+  background-color:darken(#272235,5%);
+  border-left:solid 2px #74bed5;
+}
