@@ -1,2 +1,14 @@
 <div #gmap id="map"></div>
-<!-- <input placeholder="Znajdź"/> -->
+<!-- <input placeholder="Znajdź"/>  -->
+<section  *ngIf="marker_modal" id="marker-modal">
+  <form>
+    <div>
+      <input [(ngModel)]="marker_info.title" name="mark_name" value="Tytuł markera" />
+      <textarea [(ngModel)]="marker_info.description" name="mark_description" rows="10">Przykładowy tekst blabla</textarea>
+    </div>
+    <div class="button-wrapper">
+      <button id="marker-cancel">ANULUJ</button>
+      <button (click)="addMarker()" id="marker-accept">ZATWIERDŹ</button>
+    </div>
+  </form>
+</section>

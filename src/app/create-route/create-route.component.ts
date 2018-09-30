@@ -8,17 +8,28 @@ import { MapApiService } from '../services/map-api.service';
 })
 export class CreateRouteComponent implements OnInit {
   coordinates: Array<any>;
+  markers: Array<any>;
+  distance: number;
   constructor(private mapService: MapApiService,private zone: NgZone) { }
 
   ngOnInit() {
-
     this.mapService.getMap().subscribe( (map: any) => {
       this.coordinates = map;
-      this.zone.run(() => {
-      });
+      this.distance = this.mapService.getDistance(this.coordinates);
+      this.zone.run(() => {});
+    });
+    this.mapService.getMarkers().subscribe( (markers: any) => {
+      this.markers = markers;
+      this.zone.run(() => {});
     });
   }
   removeLast() {
     this.mapService.removeLast();
+  }
+  deleteAll() {
+    this.mapService.deleteAll();
+  }
+  deleteMarker(index){
+    this.mapService.deleteMarker(index);
   }
 }

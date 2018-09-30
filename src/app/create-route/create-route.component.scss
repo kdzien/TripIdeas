@@ -1,27 +1,55 @@
-#create-view{
+.create-panel{
+
   border-radius:5px;
   position:absolute;
   top:30px;
   left:100px;
   z-index:999;
+  &.markers{
+    right:20px;
+    left:auto;
+  }
+  #distance{
+    font-size:13px;
+    background-color: whitesmoke;
+    padding:15px;
+    margin-bottom:20px;
+    span{
+      color:#4e3693;
+      font-weight:600;
+    }
+  }
   ul{
-    max-width:500px;
+    width:400px;
     box-shadow: 0 0 9px 0px rgba(0,0,0,0.75);
     background-color:whitesmoke;
     list-style-type:none;
     margin:0;
     padding:0;
     margin-bottom:20px;
+    max-height:400px;
+    overflow-y:auto;
     li{
       border-bottom: solid 1px #e0e0e0;
       font-size: 13px;
+      &.marker{
+        border:none;
+      }
       i{
         color:#4ee809;
       }
       .step_nr{
         background-color:darken(whitesmoke,10%);
       }
-      .step_address{
+      .delete-marker{
+        float: right;
+        padding: 17px;
+        color:whitesmoke;
+        background-color: #ff4d4d;
+        cursor:pointer;
+        &:hover{
+          background-color:lighten($color: #ff4d4d, $amount: 10%);
+        }
       }
       .step_nr,.step_address{
         padding:15px;
@@ -30,8 +58,16 @@
 
     }
   }
-  #undo{
+  #undo,#delete{
     padding:15px 25px;
     border:none;
+    cursor:pointer;
+  }
+  #delete{
+    background-color: #ff4d4d;
+    cursor:pointer;
+    color: #dddddd;
+
   }
 }
+

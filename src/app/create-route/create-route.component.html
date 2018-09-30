@@ -1,10 +1,20 @@
-<section id="create-view">
+<section class="create-panel">
+  <div id="distance" *ngIf="coordinates?.length>1">Długość trasy: <span>{{ distance | number : '1.2-2'}}km</span></div>
   <ul>
     <li *ngFor="let coordinate of coordinates; let i = index">
-        <div class="step_address">{{coordinate?.address}}</div>
-        <i class="fas fa-long-arrow-alt-right"></i>
-        <div class="step_address">{{coordinates[i+1]?.address}}</div>
-      </li>
+      <div class="step_address">{{coordinate?.address}}</div>
+      <i class="fas fa-long-arrow-alt-right"></i>
+      <div class="step_address">{{coordinates[i+1]?.address}}</div>
+    </li>
   </ul>
-  <button *ngIf="coordinates" id="undo" (click)="removeLast()"><i class="fas fa-undo"></i></button>
+  <button *ngIf="coordinates?.length>0" id="undo" (click)="removeLast()"><i class="fas fa-undo"></i></button>
+  <button *ngIf="coordinates?.length>0" id="delete" (click)="deleteAll()"><i class="fas fa-trash"></i></button>
+</section>
+
+<section class="create-panel markers">
+  <ul>
+    <li *ngFor="let marker of markers; let i = index" class="marker">
+      <div class="step_address">{{marker?.title}}</div><i (click)="deleteMarker(i)" class="fas fa-times delete-marker"></i>
+    </li>
+  </ul>
 </section>
