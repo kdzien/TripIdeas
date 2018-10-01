@@ -1,0 +1,21 @@
+<section id="tutorial" *ngIf="showTutorial">
+  <div id="content">
+    <div class="slide" *ngIf="currentSlide==1">
+      <h1>Witaj w aplikacji!</h1>
+      <p>Aplikacja służy do udostępniania ciekawych tras wycieczkowych</p>
+      <p>Możesz również sprawdzić, jak długa była trasa, którą właśnie co przeszedłeś!</p>
+    </div>
+    <div class="slide" *ngIf="currentSlide==2">
+        <img src="./assets/rysowanko.png">
+        <p>Zaznaczaj na mapie trasy!</p>
+        <p>Dodawaj znaczniki i je opisuj!</p>
+        <p>Jeśli masz sprawdzoną trasę wycieczkową, udostępnij ją!</p>
+    </div>
+    <div class="slide" *ngIf="currentSlide==3">
+      <img src="./assets/czytanko.png">
+      <p>Wyszukuj w wybranych miastach tras wycieczkowych!</p>
+    </div>
+    <button (click)="cancel()" *ngIf="currentSlide!=3">POMIŃ</button>
+    <button (click)="nextSlide()">{{currentSlide==3? 'ZAKOŃCZ' : 'DALEJ'}}</button>
+  </div>
+</section>

@@ -9,12 +9,11 @@ import { animate, trigger, state, style, transition } from '@angular/animations'
   animations: [
     trigger('openClose', [
       state('show', style({
-        transform: 'translateX(0px)',
+        height: 'max-content',
       })),
       state('hide', style({
-        transform: 'translateY(-20px)',
-      })),
-      transition('show <=> hide', animate('200ms ease-in')),
+        height: '0px',
+      }))
     ]),
   ],
   templateUrl: './map.component.html',
@@ -55,8 +54,8 @@ export class MapComponent implements OnInit {
       this.paint_status = route;
     });
     this.mapService.getMapCenter().subscribe( mapcenter => {
-      console.log(mapcenter);
       this.map.setCenter(mapcenter);
+      this.map.setZoom(15);
     })
     this.mapService.getMap().subscribe(mapx => {
       if(this.start_marker){
@@ -147,8 +146,10 @@ export class MapComponent implements OnInit {
     this.mapService.getGeocode(this.cityname).subscribe(res => {
       this.cities = res.results.filter( elem => elem.entityType === 'Municipality');
       this.waitingService.setModalStatus(false);
+      this.findPlaceModal = 'show';
     }, err => {
-      console.log(err);
+      this.waitingService.setModalStatus(false);
+      this.findPlaceModal = 'show';
     });
   }
   selectPlace(city) {

@@ -54,12 +54,11 @@
 }
 #findPlace{
   left:50%;
-  border: solid 1px #272235;
   border-top: none;
   top:0px;
   position:absolute;
   transform:translateX(-50%);
-  z-index:0;
+  z-index:2;
   input{
     border: 1px solid white;
     width:300px;
@@ -88,15 +87,13 @@
         opacity:0.9;
         cursor:pointer;
       }
-      &:last-child{
-        display:flex;
-        justify-content: center;
-        padding:2px;
-        background-color:#dddddd;
-        i{
-          margin:0 auto;
-        }
-      }
+
     }
   }
+}
+#expand-list{
+  padding:15px 15px !important;
+  background-color:#272235;
+  border: 1px solid #272235 !important;
+  color:white;
 }

@@ -1,5 +1,6 @@
 <section class="create-panel">
   <ul>
+    <li *ngIf="trips?.length==0"><div class="step_address" >Brak tras dla tego miasta</div></li>
     <li *ngFor="let trip of trips; let i = index" (click)="showOnMap(trip)" [ngClass]="{'active' : trip.active}">
       <div class="step_address" >{{trip?.city}}</div>
       <div class="step_address" >długość: {{trip?.length | number : '1.2-2'}}</div>

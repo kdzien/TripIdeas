@@ -106,7 +106,7 @@ export class MapApiService {
   }
   getGeocode(cityname): Observable<any> {
     // tslint:disable-next-line:max-line-length
-    return this.http.get<any>(`https://api.tomtom.com/search/2/geocode/${cityname}.JSON?key=lnFJTllYtD8wNkWMLDGOV9iKGfoKUR3f&language=pl-PL`);
+    return this.http.get<any>(`https://api.tomtom.com/search/2/geocode/${cityname ? cityname : '%20'}.JSON?key=lnFJTllYtD8wNkWMLDGOV9iKGfoKUR3f&language=pl-PL`);
   }
   getDistance(points): number {
     let total = 0;

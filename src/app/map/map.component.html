@@ -1,10 +1,12 @@
 <div #gmap id="map"></div>
-<form  [@openClose]="findPlaceModal" (ngSubmit)="findPlace()" id="findPlace">
-  <input  [(ngModel)]="cityname" name="cityname" placeholder="Wpisz nazwę miasta"/>
+<form (ngSubmit)="findPlace()" id="findPlace">
+  <input  [(ngModel)]="cityname" name="cityname" type="text" placeholder="Wpisz nazwę miasta" required/>
   <button type="submit"><i class="fas fa-search"></i></button>
-  <ul>
+  <button *ngIf="cities?.length>0" type="button" id="expand-list" (click)="toggleFindPlaceModal()">
+    <i class="fas" [ngClass]="{'fa-arrow-down' : findPlaceModal=='hide', 'fa-arrow-up' : findPlaceModal=='show'}"></i>
+  </button>
+  <ul [@openClose]="findPlaceModal">
     <li *ngFor="let city of cities" (click)="selectPlace(city)" >{{city.address.municipality}}</li>
-    <li id="expand-list" (click)="toggleFindPlaceModal()"><i class="fas fa-sort-down"></i></li>
   </ul>
 </form>
 <section  *ngIf="marker_modal" id="marker-modal">

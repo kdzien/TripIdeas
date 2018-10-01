@@ -11,6 +11,7 @@ import { TripsComponent } from './trips/trips.component';
 import { WaitingModalComponent } from './waiting-modal/waiting-modal.component';
 import { shim } from 'promise.prototype.finally';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TutorialComponent } from './tutorial/tutorial.component';
 shim();
 
 @NgModule({
@@ -20,6 +21,7 @@ shim();
     CreateRouteComponent,
     TripsComponent,
     WaitingModalComponent,
+    TutorialComponent,
   ],
   imports: [
     FormsModule,
