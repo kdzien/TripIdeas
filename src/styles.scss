@@ -3,3 +3,8 @@ body{
   overflow:hidden;
   margin:0;
 }
+button,input{
+  &:focus{
+    outline:none;
+  }
+}

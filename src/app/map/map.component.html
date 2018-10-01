@@ -1,5 +1,12 @@
 <div #gmap id="map"></div>
-<!-- <input placeholder="Znajdź"/>  -->
+<form  [@openClose]="findPlaceModal" (ngSubmit)="findPlace()" id="findPlace">
+  <input  [(ngModel)]="cityname" name="cityname" placeholder="Wpisz nazwę miasta"/>
+  <button type="submit"><i class="fas fa-search"></i></button>
+  <ul>
+    <li *ngFor="let city of cities" (click)="selectPlace(city)" >{{city.address.municipality}}</li>
+    <li id="expand-list" (click)="toggleFindPlaceModal()"><i class="fas fa-sort-down"></i></li>
+  </ul>
+</form>
 <section  *ngIf="marker_modal" id="marker-modal">
   <form>
     <div>
@@ -7,8 +14,8 @@
       <textarea [(ngModel)]="marker_info.description" name="mark_description" rows="10">Przykładowy tekst blabla</textarea>
     </div>
     <div class="button-wrapper">
-      <button id="marker-cancel">ANULUJ</button>
-      <button (click)="addMarker()" id="marker-accept">ZATWIERDŹ</button>
+      <button type='button' (click)="marker_modal=false" id="marker-cancel">ANULUJ</button>
+      <button type='button' (click)="addMarker()" id="marker-accept">ZATWIERDŹ</button>
     </div>
   </form>
 </section>

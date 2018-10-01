@@ -8,19 +8,43 @@ aside{
     margin:0;
     padding:0;
     li{
-      padding:20px;
+      padding:15px;
       cursor:pointer;
       i{
         color:#6e6e6e;
-        font-size:20px;
+        font-size:15px;
       }
       &:focus{
         outline:none;
+      }
+      &:after{
+
+      }
+      &:after{
+        color:whitesmoke;
+        font-size:11px;
+        font-weight:bold;
+        position:absolute;
+        padding:10px 15px;
+        left:50px;
+        background-color:rgba(0,0,0,0.6);
+        z-index:2;
+        width:max-content;
+      }
+      &:first-child:hover{
+        &:after{
+          content:"NOWA TRASA";
+        }
+      }
+      &:nth-child(2):hover{
+        &:after{
+          content:"TRASY TURYSTYCZNE";
+        }
       }
     }
   }
 }
 .active-link{
   background-color:darken(#272235,5%);
-  border-left:solid 2px #74bed5;
+  border-left:solid 1px #74bed5;
 }

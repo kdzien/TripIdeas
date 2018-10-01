@@ -4,7 +4,7 @@
   position:absolute;
   top:30px;
   left:100px;
-  z-index:999;
+  z-index:1;
   &.markers{
     right:20px;
     left:auto;
@@ -58,16 +58,26 @@
 
     }
   }
-  #undo,#delete{
-    padding:15px 25px;
-    border:none;
-    cursor:pointer;
+  #button-wrapper{
+    display:flex;
+    #undo,#delete, #save{
+      padding:15px 25px;
+      border:none;
+      cursor:pointer;
+    }
+    #save{
+      flex: 1;
+      margin-left: 20px;
+      background-color:#00ba6a;
+      color:whitesmoke;
+      font-weight:500;
+    }
+    #delete{
+      background-color: #ff4d4d;
+      cursor:pointer;
+      color: #dddddd;
+    }
   }
-  #delete{
-    background-color: #ff4d4d;
-    cursor:pointer;
-    color: #dddddd;
 
-  }
 }
 

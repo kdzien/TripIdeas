@@ -3,12 +3,13 @@
   <nav>
     <ul>
       <li [routerLink]="['/create-route']" routerLinkActive="active-link"><i class="fa fa-route"></i></li>
-      <li  routerLinkActive="active-link"><i class="far fa-map"></i></li>
+      <li [routerLink]="['/trips']" routerLinkActive="active-link"><i class="far fa-map"></i></li>
     </ul>
   </nav>
 </aside>
 <main>
   <router-outlet></router-outlet>
   <app-map></app-map>
+  <app-waiting-modal></app-waiting-modal>
 </main>
 

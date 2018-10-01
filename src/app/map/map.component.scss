@@ -52,3 +52,51 @@
     }
   }
 }
+#findPlace{
+  left:50%;
+  border: solid 1px #272235;
+  border-top: none;
+  top:0px;
+  position:absolute;
+  transform:translateX(-50%);
+  z-index:0;
+  input{
+    border: 1px solid white;
+    width:300px;
+    padding:15px 10px;
+  }
+  button{
+
+    border: 1px solid #dddddd;
+    padding:15px 35px;
+    &:hover{
+      opacity:0.9;
+      cursor:pointer;
+    }
+  }
+  ul{
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    max-height:300px;
+    overflow-y:auto;
+    li{
+      font-size:13px;
+      padding:15px 10px;
+      background-color:whitesmoke;
+      &:hover{
+        opacity:0.9;
+        cursor:pointer;
+      }
+      &:last-child{
+        display:flex;
+        justify-content: center;
+        padding:2px;
+        background-color:#dddddd;
+        i{
+          margin:0 auto;
+        }
+      }
+    }
+  }
+}
