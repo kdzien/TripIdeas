@@ -1,6 +1,6 @@
 import { WaitingService } from './../services/waiting.service';
 import { MapApiService } from './../services/map-api.service';
-import { Component, OnInit, ViewChild, NgZone } from '@angular/core';
+import { Component, OnInit, ViewChild, NgZone, Input } from '@angular/core';
 import { } from '@types/googlemaps';
 import { Router, ActivatedRoute } from '@angular/router';
 import { animate, trigger, state, style, transition } from '@angular/animations';
@@ -9,11 +9,12 @@ import { animate, trigger, state, style, transition } from '@angular/animations'
   animations: [
     trigger('openClose', [
       state('show', style({
-        height: 'max-content',
+        transform: 'translateX(47px)'
       })),
       state('hide', style({
-        height: '0px',
-      }))
+        transform: 'translateX(-452px)'
+      })),
+      transition('hide <=> show', animate('350ms ease-in')),
     ]),
   ],
   templateUrl: './map.component.html',
@@ -21,7 +22,6 @@ import { animate, trigger, state, style, transition } from '@angular/animations'
 })
 export class MapComponent implements OnInit {
   @ViewChild('gmap') gmapElement: any;
-  findPlaceModal = 'show';
   map: google.maps.Map;
   marker_modal = false;
   cityname: String;
@@ -32,9 +32,12 @@ export class MapComponent implements OnInit {
   new_route_coordinates: Array<any> = [];
   new_route_markers: Array<any> = [];
   paint_status: boolean;
+  @Input() findPlaceModal = 'show';
   // tslint:disable-next-line:max-line-length
   constructor(private mapService: MapApiService, private ngzone: NgZone, private waitingService: WaitingService) { }
-
+  toggleFindPlaceModal(){
+    console.log(this.findPlaceModal);
+  }
   ngOnInit() {
     const mapProp = {
       center: new google.maps.LatLng(51.092289, 17.039216),
@@ -156,8 +159,5 @@ export class MapComponent implements OnInit {
     console.log(city)
     this.mapService.changePlace(city.address.municipality);
     this.mapService.setMapCenter(new google.maps.LatLng(city.position.lat, city.position.lon));
-  }
-  toggleFindPlaceModal() {
-    this.findPlaceModal = (this.findPlaceModal === 'hide' ? 'show' : 'hide');
   }
 }

@@ -2,6 +2,7 @@
 <aside>
   <nav>
     <ul>
+      <li (click)="toggleFindModal()" [ngClass]="{'active' : findModal=='show'}"><i class="fas fa-search"></i></li>
       <li [routerLink]="['/create-route']" routerLinkActive="active-link"><i class="fa fa-route"></i></li>
       <li [routerLink]="['/trips']" routerLinkActive="active-link"><i class="far fa-map"></i></li>
     </ul>
@@ -9,8 +10,8 @@
 </aside>
 <main>
   <router-outlet></router-outlet>
-  <app-map></app-map>
+  <app-map [findPlaceModal]='findModal'></app-map>
   <app-waiting-modal></app-waiting-modal>
-  <app-tutorial></app-tutorial>
+  <!-- <app-tutorial></app-tutorial> -->
 </main>
 

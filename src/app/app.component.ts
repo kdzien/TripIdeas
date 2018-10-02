@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  findModal = 'hide';
+
+  toggleFindModal() {
+    this.findModal = (this.findModal === 'hide' ? 'show' : 'hide');
+  }
 }

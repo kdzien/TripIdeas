@@ -10,6 +10,7 @@ import { MapApiService } from '../services/map-api.service';
 })
 export class TripsComponent implements OnInit, OnDestroy {
   trips: Array<any>;
+  first_try = true;
   constructor(private mapService: MapApiService, private httpService: HttpService, private waitingService: WaitingService) { }
 
   ngOnInit() {
@@ -17,6 +18,8 @@ export class TripsComponent implements OnInit, OnDestroy {
     this.waitingService.setModalStatus(true);
 
     this.mapService.getCurrentPlace().subscribe( city => {
+      const city_go = this.first_try ? city = '' : city;
+      this.first_try = false;
       this.httpService.getTrips(city).subscribe( trips => {
         this.trips = trips;
         this.waitingService.setModalStatus(false);

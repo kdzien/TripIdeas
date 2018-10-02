@@ -5,10 +5,12 @@
   top:0;
   left:0;
   z-index:99;
+  background-color:rgba(0,0,0,0.8);
+
   #content{
     .slide{
-      background-color:rgba(0,0,0,0.8);
-      color:whitesmoke;
+      color:gray;
+      background-color:whitesmoke;
       text-align:center;
       padding:35px;
       p{
@@ -16,7 +18,7 @@
         margin:5px;
       }
     }
-    width:70%;
+    width:50%;
     position:relative;
     top:50%;
     left:50%;

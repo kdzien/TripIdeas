@@ -39,10 +39,10 @@ export class MapApiService {
   }
   updateMarkers(marker): Promise<any> {
     return new Promise((resolve,reject) => {
-      if (!marker.title || marker.title.length < 5){
-        return reject('Uzupełnij tytuł (minimum 5 znaków)');
-      } else if (!marker.description || marker.description.length < 30 ){
-        return reject('Uzupełnij opis (minimum 30 znaków)');
+      if (!marker.title || marker.title.length < 3){
+        return reject('Uzupełnij tytuł (minimum 3 znaków)');
+      } else if (!marker.description || marker.description.length < 10 ){
+        return reject('Uzupełnij opis (minimum 10 znaków)');
       } else {
         this.markers_tab.push(marker);
         this.$markers_tab.next(this.markers_tab);
